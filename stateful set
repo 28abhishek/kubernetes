@@ -26,7 +26,7 @@ spec:
           mountPath: /usr/share/nginx/html
   volumeClaimTemplates:
    - metadata:
-      name:  local-storage
+      name: postgres-data
      spec:
       storageClassName: local-storage
       accessModes:
