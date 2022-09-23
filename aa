@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: singlestore
+spec:
+  selector:
+    matchLabels:
+      app: singlestore # has to match .spec.template.metadata.labels
+  replicas: 1 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        app: singlestore # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: singlestore
+        resources:
+        Docker Hub
+        image: singlestore/cluster-in-a-box
+        ports:
+        - containerPort: 3306   # singlestore sql db
+        - containerPort: 8080   # studio
+        env:
+        init
+        - name: START_AFTER_INIT
+          values: "Y"
+        - name: LICENSE_KEY
+          value: BDk3MGQ4YWM5NDU4MTRlYjBiYTE4ZjU4MGRjZTM5MWFjAAAAAAAAAAAEAAAAAAAAACgwNgIZALEr4i6wO7uOXP4oEDBYmoGCH3SvJ8TsOwIZANi9WYwU9rzrqCHyhPsqZynvl1z91+WtWg==
+---
+ apiVersion: v1
+kind: Service
+metadata:
+  name: singlestore
+  labels:
+    app: singlestore
+spec:
+  type: NodePort
+  ports:
+  - name: single db
+    port: 3306
+    targetPort: 3306
+    nodePort: 33060
+  - name: studio
+    port: 8080
+    targetPort: 8080
+    nodePort: 33061
+  selector:
+    app: singlestore
