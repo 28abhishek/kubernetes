@@ -3,7 +3,7 @@ kind: MemsqlCluster
 metadata:
   name: sdb-cluster
 spec:
-  license: "BGRjY2YxYzg2ZWMwZjRlMDFhOWY2YmQ3YTE1NTQxNGVlAAAAAAAAAAAEAAAAAAAAACgwNgIZALi9Cb6718PNlXaAnS+5IUGYz5Zu05HuRgIZAIn0Ow7p9p07DIMkDVc49H+dtL7hpWh6Mw=="
+  license: "BDk3MGQ4YWM5NDU4MTRlYjBiYTE4ZjU4MGRjZTM5MWFjAAAAAAAAAAAEAAAAAAAAACgwNgIZALEr4i6wO7uOXP4oEDBYmoGCH3SvJ8TsOwIZANi9WYwU9rzrqCHyhPsqZynvl1z91+WtWg=="
   adminHashedPassword: "*9177CC8207174BDBB5ED66B2140C75171283F15D"
  # containers:
  #   - name: sdb-operator
@@ -26,8 +26,8 @@ spec:
 
   aggregatorSpec:
     count: 2
-    height: 0.5
-    storageGB: 75
+    height: 0.1
+    storageGB: 50
     storageClass: standard
 
     objectMetaOverrides:
@@ -38,8 +38,8 @@ spec:
 
   leafSpec:
     count: 2
-    height: 0.5
-    storageGB: 128
+    height: 0.1
+    storageGB: 50
     storageClass: standard
 
     objectMetaOverrides:
