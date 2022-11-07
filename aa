@@ -16,8 +16,6 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: singlestore
-        resources:
-        Docker Hub
         image: singlestore/cluster-in-a-box:alma-7.8.17-69cee1f1a3-4.0.8-1.13.13
         ports:
         - containerPort: 3306   # singlestore sql db
