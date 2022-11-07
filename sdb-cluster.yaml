@@ -49,4 +49,4 @@ spec:
         optional: label
 
   serviceSpec:
-    type: "ClusterIP"
+    type: "LoadBalancer"
